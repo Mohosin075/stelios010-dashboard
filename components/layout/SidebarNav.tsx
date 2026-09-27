@@ -1,18 +1,19 @@
 import React, { memo } from "react";
-import { NavSection } from "@/types/navigation";
+import Link from "next/link";
+import { NavSection, NavItem } from "@/types/navigation";
 import { cn } from "@/lib/utils";
 
 interface SidebarNavProps {
   sections: readonly NavSection[];
-  activeItem: string;
-  onSelectItem: (label: string) => void;
+  currentPath: string;
+  onNavigate?: () => void;
   className?: string;
 }
 
 export const SidebarNav = memo(function SidebarNav({
   sections,
-  activeItem,
-  onSelectItem,
+  currentPath,
+  onNavigate,
   className,
 }: SidebarNavProps) {
   return (
@@ -30,13 +31,16 @@ export const SidebarNav = memo(function SidebarNav({
           <div className="space-y-0.5">
             {section.items.map((item) => {
               const Icon = item.icon;
-              const isActive = activeItem === item.label;
+              const isActive =
+                item.href === "/dashboard"
+                  ? currentPath === "/dashboard"
+                  : currentPath.startsWith(item.href);
 
               return (
-                <button
+                <Link
                   key={item.label}
-                  type="button"
-                  onClick={() => onSelectItem(item.label)}
+                  href={item.href}
+                  onClick={onNavigate}
                   className={cn(
                     "w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 text-left cursor-pointer",
                     isActive
@@ -51,7 +55,7 @@ export const SidebarNav = memo(function SidebarNav({
                     )}
                   />
                   <span>{item.label}</span>
-                </button>
+                </Link>
               );
             })}
           </div>

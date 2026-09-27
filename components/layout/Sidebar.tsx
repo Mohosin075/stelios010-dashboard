@@ -8,8 +8,7 @@ import { cn } from "@/lib/utils";
 
 interface SidebarProps {
   isOpen: boolean;
-  activeItem: string;
-  onSelectItem: (label: string) => void;
+  currentPath: string;
   onClose: () => void;
   onLogout: () => void;
   className?: string;
@@ -17,8 +16,7 @@ interface SidebarProps {
 
 export const Sidebar = memo(function Sidebar({
   isOpen,
-  activeItem,
-  onSelectItem,
+  currentPath,
   onClose,
   onLogout,
   className,
@@ -57,8 +55,8 @@ export const Sidebar = memo(function Sidebar({
         {/* Scrollable Nav Item Area */}
         <SidebarNav
           sections={DASHBOARD_NAV_SECTIONS}
-          activeItem={activeItem}
-          onSelectItem={onSelectItem}
+          currentPath={currentPath}
+          onNavigate={onClose}
         />
 
         {/* Pinned Bottom User & Logout Actions */}

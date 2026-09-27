@@ -1,9 +1,14 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState, useCallback, useMemo } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
+
+const routeTitleMap: Record<string, string> = {
+  "/dashboard": "Dashboard",
+  "/users": "Users",
+};
 
 export default function DashboardLayout({
   children,
@@ -11,16 +16,20 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState("Dashboard");
+
+  const pageTitle = useMemo(() => {
+    for (const [route, title] of Object.entries(routeTitleMap)) {
+      if (pathname === route || pathname.startsWith(`${route}/`)) {
+        return title;
+      }
+    }
+    return "Dashboard";
+  }, [pathname]);
 
   const handleOpenMobileMenu = useCallback(() => setIsMobileMenuOpen(true), []);
   const handleCloseMobileMenu = useCallback(() => setIsMobileMenuOpen(false), []);
-
-  const handleSelectItem = useCallback((label: string) => {
-    setActiveItem(label);
-    setIsMobileMenuOpen(false);
-  }, []);
 
   const handleLogout = useCallback(() => {
     if (typeof window !== "undefined") {
@@ -34,8 +43,7 @@ export default function DashboardLayout({
       {/* Sidebar with sticky height and pinned bottom */}
       <Sidebar
         isOpen={isMobileMenuOpen}
-        activeItem={activeItem}
-        onSelectItem={handleSelectItem}
+        currentPath={pathname}
         onClose={handleCloseMobileMenu}
         onLogout={handleLogout}
       />
@@ -43,7 +51,7 @@ export default function DashboardLayout({
       {/* Main Content Column */}
       <div className="flex-1 flex flex-col h-screen min-w-0 overflow-hidden bg-[#0A0B0D]">
         <Header
-          title={activeItem}
+          title={pageTitle}
           notificationCount={3}
           userInitial="A"
           onOpenMobileMenu={handleOpenMobileMenu}
