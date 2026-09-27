@@ -17,7 +17,8 @@ export const PioneerRevenueCard = memo(function PioneerRevenueCard({
   ];
 
   return (
-    <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 sm:p-6 flex flex-col h-full">
+    <div className="card-depth rounded-xl p-5 sm:p-6 flex flex-col h-full overflow-hidden">
+      <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
       <h2 className="text-sm font-semibold text-gray-200 mb-4 tracking-wide">
         Pioneer Subscription Revenue
       </h2>

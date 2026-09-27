@@ -16,7 +16,7 @@ export const PollTabs = memo(function PollTabs({
   onTabChange,
 }: PollTabsProps) {
   return (
-    <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-1.5 flex items-center gap-2 w-fit">
+    <div className="tab-depth rounded-xl p-1.5 flex items-center gap-1.5 w-fit">
       {TABS.map((tab) => {
         const isActive = activeTab === tab;
         return (
@@ -25,10 +25,10 @@ export const PollTabs = memo(function PollTabs({
             type="button"
             onClick={() => onTabChange(tab)}
             className={cn(
-              "px-4 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 cursor-pointer select-none",
+              "px-4 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 cursor-pointer select-none active:scale-95",
               isActive
-                ? "bg-[#FFC800] text-black shadow-xs font-bold"
-                : "text-gray-400 hover:text-white"
+                ? "bg-[#FFC800] text-black shadow-[0_2px_10px_rgba(255,200,0,0.3)] font-bold"
+                : "text-gray-400 hover:text-white hover:bg-white/[0.04]"
             )}
           >
             {tab}

@@ -78,8 +78,9 @@ export default function ReviewVerificationPage() {
         {/* Left Column (5 cols on lg) */}
         <div className="lg:col-span-4 space-y-4">
           {/* 1. USER Card */}
-          <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-5 space-y-3">
-            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+          <div className="card-depth rounded-2xl p-5 space-y-3 overflow-hidden">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
               USER
             </span>
             <div className="flex items-center gap-3 pt-1">
@@ -87,8 +88,8 @@ export default function ReviewVerificationPage() {
                 className={cn(
                   "w-12 h-12 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 select-none",
                   item.isYellowAvatar
-                    ? "bg-[#252110] text-[#FFC800] border border-[#FFC800]/30"
-                    : "bg-[#1C1E26] text-gray-300 border border-gray-700/50"
+                    ? "bg-[#FFC800]/15 text-[#FFC800] border border-[#FFC800]/30 shadow-[0_0_12px_rgba(255,200,0,0.15)]"
+                    : "bg-[#1C1E26] text-gray-300 border border-white/[0.08]"
                 )}
               >
                 {item.userInitials}
@@ -105,14 +106,15 @@ export default function ReviewVerificationPage() {
           </div>
 
           {/* 2. PRODUCT Card */}
-          <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-5 space-y-3">
-            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+          <div className="card-depth rounded-2xl p-5 space-y-3 overflow-hidden">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
               PRODUCT
             </span>
 
             {/* Diamond box placeholder */}
-            <div className="w-full h-32 bg-[#181A20] border border-[#232630] rounded-xl flex items-center justify-center">
-              <div className="w-10 h-10 border-2 border-gray-600 rotate-45 rounded-sm" />
+            <div className="w-full h-32 bg-[#0D0E12]/80 border border-white/[0.06] rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 border-2 border-[#FFC800]/60 rotate-45 rounded-sm shadow-[0_0_10px_rgba(255,200,0,0.15)]" />
             </div>
 
             <div className="space-y-2 pt-1">
@@ -124,7 +126,7 @@ export default function ReviewVerificationPage() {
               </div>
 
               <div>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-[#1A1C24] text-gray-300 border border-gray-700/50">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-white/[0.04] text-gray-300 border border-white/[0.08]">
                   {item.limb}
                 </span>
               </div>
@@ -132,9 +134,10 @@ export default function ReviewVerificationPage() {
           </div>
 
           {/* 3. VERIFICATION STATUS Card */}
-          <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-5 space-y-3">
+          <div className="card-depth rounded-2xl p-5 space-y-3 overflow-hidden">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
             <div>
-              <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
                 VERIFICATION STATUS
               </span>
               <p className="text-xs text-gray-400 mt-0.5">Product 2 of 2</p>
@@ -171,28 +174,29 @@ export default function ReviewVerificationPage() {
         {/* Right Column (8 cols on lg) */}
         <div className="lg:col-span-8 space-y-4">
           {/* 1. VIDEO VERIFICATION Container */}
-          <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-6 space-y-4">
-            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+          <div className="card-depth rounded-2xl p-6 space-y-4 overflow-hidden">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
               VIDEO VERIFICATION
             </span>
 
             {/* Video Viewport Box */}
             <div
               onClick={() => setIsPlaying(!isPlaying)}
-              className="w-full h-80 sm:h-96 bg-[#16181F] border border-[#222530] rounded-2xl flex flex-col items-center justify-center relative cursor-pointer group overflow-hidden"
+              className="w-full h-80 sm:h-96 bg-[#0D0E12]/90 border border-white/[0.08] rounded-2xl flex flex-col items-center justify-center relative cursor-pointer group overflow-hidden"
             >
               {/* Subtle background glow */}
-              <div className="absolute inset-0 bg-radial from-amber-500/5 to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-radial from-[#FFC800]/5 to-transparent opacity-60" />
 
               {/* Play button */}
-              <div className="w-14 h-14 rounded-full border-2 border-[#FFC800] bg-black/60 text-[#FFC800] flex items-center justify-center transition-transform group-hover:scale-110 shadow-xl relative z-10">
+              <div className="w-14 h-14 rounded-full border-2 border-[#FFC800] bg-black/60 text-[#FFC800] flex items-center justify-center transition-transform group-hover:scale-110 shadow-[0_0_20px_rgba(255,200,0,0.3)] relative z-10">
                 <Play className="w-6 h-6 ml-0.5 fill-[#FFC800]" />
               </div>
 
               <p className="text-sm font-semibold text-white mt-4 relative z-10">
                 {isPlaying ? "Playing verification video…" : "10-second verification video"}
               </p>
-              <p className="text-xs text-gray-500 mt-1 relative z-10">
+              <p className="text-xs text-gray-400 mt-1 relative z-10">
                 {isPlaying ? "Click to pause" : "Click to play"}
               </p>
             </div>
@@ -200,8 +204,8 @@ export default function ReviewVerificationPage() {
 
           {/* 2. Status / Action Decision Box */}
           {item.status === "Unsuccessful" ? (
-            <div className="border border-red-950/70 bg-red-950/15 rounded-2xl p-5 space-y-1.5">
-              <h4 className="text-sm font-bold text-red-500">
+            <div className="border border-red-500/20 bg-red-500/10 rounded-2xl p-5 space-y-1.5">
+              <h4 className="text-sm font-bold text-red-400">
                 Marked Unsuccessful
               </h4>
               <p className="text-xs text-gray-300 leading-relaxed">
@@ -210,7 +214,7 @@ export default function ReviewVerificationPage() {
               </p>
             </div>
           ) : item.status === "Approved" ? (
-            <div className="border border-green-950/70 bg-green-950/15 rounded-2xl p-5 space-y-1.5">
+            <div className="border border-green-500/20 bg-green-500/10 rounded-2xl p-5 space-y-1.5">
               <h4 className="text-sm font-bold text-[#10B981]">
                 Verification Approved
               </h4>
@@ -220,7 +224,8 @@ export default function ReviewVerificationPage() {
             </div>
           ) : (
             /* Pending decision action controls */
-            <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="card-depth rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 overflow-hidden">
+              <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
               <div>
                 <p className="text-sm font-semibold text-white">Review Decision</p>
                 <p className="text-xs text-gray-400 mt-0.5">
@@ -232,14 +237,14 @@ export default function ReviewVerificationPage() {
                 <button
                   type="button"
                   onClick={() => setShowRejectModal(true)}
-                  className="px-4 py-2 text-xs font-semibold text-red-400 hover:text-red-300 border border-red-500/40 hover:bg-red-500/10 rounded-xl transition-colors cursor-pointer"
+                  className="px-4 py-2 text-xs font-semibold text-red-400 hover:text-red-300 border border-red-500/30 hover:bg-red-500/10 rounded-xl transition-all cursor-pointer active:scale-95"
                 >
                   Mark Unsuccessful
                 </button>
                 <button
                   type="button"
                   onClick={handleApprove}
-                  className="px-4 py-2 text-xs font-semibold text-black bg-[#FFC800] hover:bg-[#F2BD00] rounded-xl transition-all shadow-sm cursor-pointer"
+                  className="px-5 py-2 text-xs font-bold text-black bg-[#FFC800] hover:bg-[#F5BF00] rounded-xl shadow-[0_2px_12px_rgba(255,200,0,0.25)] transition-all cursor-pointer active:scale-95"
                 >
                   Approve Verification
                 </button>

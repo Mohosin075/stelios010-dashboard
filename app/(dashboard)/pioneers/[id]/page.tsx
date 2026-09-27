@@ -90,10 +90,11 @@ export default function PioneerDetailsPage() {
       </div>
 
       {/* Header Profile Hero Card */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-5">
+      <div className="card-depth rounded-xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-5 overflow-hidden">
+        <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
         {/* Left: Avatar & Details */}
         <div className="flex items-start sm:items-center gap-4">
-          <div className="w-14 h-14 rounded-xl bg-[#252110] text-[#FFC800] border border-[#FFC800]/30 flex items-center justify-center font-bold text-xl shrink-0 select-none">
+          <div className="w-14 h-14 rounded-xl bg-[#FFC800]/15 text-[#FFC800] border border-[#FFC800]/30 shadow-[0_0_12px_rgba(255,200,0,0.15)] flex items-center justify-center font-bold text-xl shrink-0 select-none">
             {pioneer.initials}
           </div>
           <div className="space-y-1.5">
@@ -102,7 +103,7 @@ export default function PioneerDetailsPage() {
                 {pioneer.name}
               </h1>
               {pioneer.verificationStatus === "Verified" && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#252110] text-[#FFC800] border border-[#FFC800]/30 select-none">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#FFC800]/10 text-[#FFC800] border border-[#FFC800]/30 shadow-[0_0_8px_rgba(255,200,0,0.1)] select-none">
                   <span className="text-[10px]">◆</span> Verified Pioneer
                 </span>
               )}
@@ -118,7 +119,7 @@ export default function PioneerDetailsPage() {
                   Claimed
                 </span>
               ) : (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#1C1E24] text-gray-400 border border-gray-700/40">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/[0.04] text-gray-400 border border-white/[0.08]">
                   Unclaimed
                 </span>
               )}
@@ -127,8 +128,8 @@ export default function PioneerDetailsPage() {
                 className={cn(
                   "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium",
                   pioneer.subscriptionStatus === "Active"
-                    ? "bg-[#28220F] text-[#FACC15] border border-[#FACC15]/20"
-                    : "bg-[#1C1E24] text-gray-400 border border-gray-700/40"
+                    ? "bg-[#FFC800]/10 text-[#FFC800] border border-[#FFC800]/25"
+                    : "bg-white/[0.04] text-gray-400 border border-white/[0.08]"
                 )}
               >
                 Subscription: {pioneer.subscriptionStatus}
@@ -142,7 +143,7 @@ export default function PioneerDetailsPage() {
           <button
             type="button"
             onClick={() => setIsEditModalOpen(true)}
-            className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-4 py-2 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
+            className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-4 py-2 text-xs font-semibold transition-all cursor-pointer active:scale-95"
           >
             Edit Pioneer
           </button>
@@ -155,14 +156,14 @@ export default function PioneerDetailsPage() {
                 showToast("No products found for this pioneer.");
               }
             }}
-            className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-4 py-2 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
+            className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-4 py-2 text-xs font-semibold transition-all cursor-pointer active:scale-95"
           >
             Manage Products
           </button>
           <button
             type="button"
             onClick={() => showToast(`Subscription Plan: ${pioneer.subscriptionPlan || "Annual"}`)}
-            className="text-gray-500 hover:text-gray-300 text-xs font-medium px-3 py-2 cursor-pointer transition-colors"
+            className="text-gray-400 hover:text-white text-xs font-medium px-3 py-2 cursor-pointer transition-colors"
           >
             View Subscription
           </button>
@@ -172,7 +173,8 @@ export default function PioneerDetailsPage() {
       {/* Main 2-Column Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Left Column: Company Information */}
-        <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6 space-y-4">
+        <div className="card-depth rounded-xl p-5 md:p-6 space-y-4 overflow-hidden">
+          <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
           <h2 className="text-sm font-semibold text-white tracking-wide">
             Company Information
           </h2>
@@ -215,7 +217,8 @@ export default function PioneerDetailsPage() {
         {/* Right Column: Products & Subscription */}
         <div className="space-y-4">
           {/* Products Card */}
-          <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6 space-y-3.5">
+          <div className="card-depth rounded-xl p-5 md:p-6 space-y-3.5 overflow-hidden">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
             <h2 className="text-sm font-semibold text-white tracking-wide">
               Products ({productsList.length})
             </h2>
@@ -227,12 +230,12 @@ export default function PioneerDetailsPage() {
                 productsList.map((product) => (
                   <div
                     key={product.id}
-                    className="bg-[#161820] border border-[#222530] rounded-xl p-3.5 flex items-center justify-between gap-3"
+                    className="bg-[#0D0E12]/80 border border-white/[0.06] rounded-xl p-3.5 flex items-center justify-between gap-3"
                   >
                     <div className="flex items-center gap-3">
                       {/* Product square icon with diamond glyph */}
-                      <div className="w-9 h-9 rounded-lg bg-[#20232A] border border-gray-700/40 flex items-center justify-center shrink-0">
-                        <div className="w-3 h-3 border border-gray-400 rotate-45" />
+                      <div className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center shrink-0">
+                        <div className="w-3 h-3 border border-[#FFC800]/70 rotate-45 shadow-[0_0_6px_rgba(255,200,0,0.2)]" />
                       </div>
                       <div>
                         <p className="text-xs font-semibold text-white">
@@ -251,7 +254,7 @@ export default function PioneerDetailsPage() {
                       <button
                         type="button"
                         onClick={() => handleEditProductClick(product)}
-                        className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-3 py-1 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
+                        className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-3 py-1 text-xs font-medium transition-all cursor-pointer active:scale-95"
                       >
                         Edit
                       </button>
@@ -263,12 +266,13 @@ export default function PioneerDetailsPage() {
           </div>
 
           {/* Subscription Card */}
-          <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6 space-y-4">
+          <div className="card-depth rounded-xl p-5 md:p-6 space-y-4 overflow-hidden">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
             <h2 className="text-sm font-semibold text-white tracking-wide">
               Subscription
             </h2>
 
-            <div className="divide-y divide-[#1A1C22] pt-1">
+            <div className="divide-y divide-white/[0.04] pt-1">
               <div className="py-2.5 flex items-center justify-between text-xs">
                 <span className="text-gray-400">Plan</span>
                 <span className="text-gray-200 font-medium">

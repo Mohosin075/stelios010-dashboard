@@ -20,23 +20,23 @@ const activityConfig: Record<
 > = {
   verification: {
     icon: ShieldCheck,
-    badgeClass: "bg-[#232012] text-[#FFC800] border border-[#FFC800]/30",
+    badgeClass: "bg-[#FFC800]/10 text-[#FFC800] border border-[#FFC800]/25 shadow-[0_0_8px_rgba(255,200,0,0.12)]",
   },
   contact: {
     icon: MessageSquare,
-    badgeClass: "bg-[#122620] text-[#34D399] border border-[#34D399]/30",
+    badgeClass: "bg-[#34D399]/10 text-[#34D399] border border-[#34D399]/25 shadow-[0_0_8px_rgba(52,211,153,0.12)]",
   },
   subscription: {
     icon: Sparkles,
-    badgeClass: "bg-[#232012] text-[#FFC800] border border-[#FFC800]/30",
+    badgeClass: "bg-[#FFC800]/10 text-[#FFC800] border border-[#FFC800]/25 shadow-[0_0_8px_rgba(255,200,0,0.12)]",
   },
   report: {
     icon: AlertCircle,
-    badgeClass: "bg-[#2D1619] text-[#F87171] border border-[#F87171]/30",
+    badgeClass: "bg-[#F87171]/10 text-[#F87171] border border-[#F87171]/25 shadow-[0_0_8px_rgba(248,113,113,0.12)]",
   },
   pioneer: {
     icon: Gem,
-    badgeClass: "bg-[#1C1D33] text-[#818CF8] border border-[#818CF8]/30",
+    badgeClass: "bg-[#818CF8]/10 text-[#818CF8] border border-[#818CF8]/25 shadow-[0_0_8px_rgba(129,140,248,0.12)]",
   },
 };
 
@@ -50,7 +50,7 @@ export const ActivityRow = memo(function ActivityRow({
   return (
     <div
       className={cn(
-        "py-3.5 first:pt-0 last:pb-0 flex items-center justify-between gap-4 hover:bg-white/[0.015] transition-colors rounded-lg px-2 -mx-2",
+        "py-3.5 first:pt-1 last:pb-1 flex items-center justify-between gap-4 hover:bg-white/[0.03] transition-all duration-150 rounded-lg px-2.5 -mx-2.5",
         className
       )}
     >

@@ -120,6 +120,96 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased selection:bg-[#FFC800]/20 selection:text-[#FFC800];
+  }
+
+  /* Custom sleek dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.18);
   }
 }
+
+/* Premium Humanized Glassmorphism & Depth Utilities */
+.glass-panel {
+  background: linear-gradient(180deg, rgba(20, 22, 28, 0.8) 0%, rgba(13, 14, 18, 0.9) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.6), 0 0 15px -3px rgba(255, 200, 0, 0.03);
+}
+
+/* Card & Container Depth with subtle rim light */
+.card-depth {
+  background: linear-gradient(180deg, rgba(22, 24, 30, 0.75) 0%, rgba(13, 14, 18, 0.9) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+.card-depth-hover {
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-depth-hover:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.65), 0 0 20px -4px rgba(255, 200, 0, 0.04);
+  transform: translateY(-1px);
+}
+
+/* Premium table container */
+.table-depth {
+  background: linear-gradient(180deg, rgba(20, 22, 28, 0.75) 0%, rgba(13, 14, 18, 0.85) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.5);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* Premium input focus */
+.input-depth {
+  background-color: rgba(13, 14, 18, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 180ms ease;
+}
+.input-depth:focus {
+  border-color: rgba(255, 200, 0, 0.75);
+  box-shadow: 0 0 0 3px rgba(255, 200, 0, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Pill / Tab bar container */
+.tab-depth {
+  background-color: rgba(13, 14, 18, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Micro-interaction polish for buttons & links */
+button, a, input, select, textarea {
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+

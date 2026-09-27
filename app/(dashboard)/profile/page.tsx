@@ -34,9 +34,10 @@ export default function AdminProfilePage() {
       )}
 
       {/* Admin Profile Card */}
-      <div className="max-w-md bg-[#121316] border border-[#1E2026] rounded-2xl p-7 flex flex-col items-center text-center space-y-6">
+      <div className="max-w-md card-depth rounded-2xl p-7 flex flex-col items-center text-center space-y-6 overflow-hidden">
+        <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
         {/* Avatar */}
-        <div className="w-20 h-20 rounded-2xl bg-[#252110] border border-[#FFC800]/30 flex items-center justify-center font-bold text-3xl text-[#FFC800] select-none shadow-xs">
+        <div className="w-20 h-20 rounded-2xl bg-[#FFC800]/15 border border-[#FFC800]/30 shadow-[0_0_20px_rgba(255,200,0,0.18)] flex items-center justify-center font-bold text-3xl text-[#FFC800] select-none">
           A
         </div>
 
@@ -51,7 +52,7 @@ export default function AdminProfilePage() {
           {/* Edit Profile */}
           <Link
             href="/settings"
-            className="w-full block py-2.5 px-4 bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-xl text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer text-center"
+            className="w-full block py-2.5 px-4 bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-xl text-xs font-semibold transition-all cursor-pointer text-center active:scale-95"
           >
             Edit Profile
           </Link>
@@ -59,7 +60,7 @@ export default function AdminProfilePage() {
           {/* Change Password */}
           <Link
             href="/settings"
-            className="w-full block py-2.5 px-4 bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-xl text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer text-center"
+            className="w-full block py-2.5 px-4 bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-xl text-xs font-semibold transition-all cursor-pointer text-center active:scale-95"
           >
             Change Password
           </Link>
@@ -68,7 +69,7 @@ export default function AdminProfilePage() {
           <button
             type="button"
             onClick={handleLogout}
-            className="w-full py-2.5 px-4 bg-[#161820] border border-[#272A36] hover:border-red-500/50 text-[#EF4444] rounded-xl text-xs font-medium transition-all hover:bg-red-950/20 cursor-pointer text-center"
+            className="w-full py-2.5 px-4 bg-red-500/10 border border-red-500/20 hover:border-red-500/40 hover:bg-red-500/15 text-red-400 rounded-xl text-xs font-semibold transition-all cursor-pointer text-center active:scale-95"
           >
             Log Out
           </button>

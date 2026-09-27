@@ -18,16 +18,16 @@ export const SubmissionTabs = memo(function SubmissionTabs({
   productPendingCount,
 }: SubmissionTabsProps) {
   return (
-    <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-1.5 flex items-center gap-2 w-full">
+    <div className="tab-depth rounded-2xl p-1.5 flex items-center gap-2 w-full">
       {/* Missing Pioneers Tab */}
       <button
         type="button"
         onClick={() => onTabChange("Missing Pioneers")}
         className={cn(
-          "flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer select-none",
+          "flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer select-none active:scale-95",
           activeTab === "Missing Pioneers"
-            ? "bg-[#FFC800] text-black shadow-xs font-bold"
-            : "text-gray-400 hover:text-white"
+            ? "bg-[#FFC800] text-black shadow-[0_2px_12px_rgba(255,200,0,0.25)] font-bold"
+            : "text-gray-400 hover:text-white hover:bg-white/[0.04]"
         )}
       >
         <span>Missing Pioneers</span>
@@ -48,10 +48,10 @@ export const SubmissionTabs = memo(function SubmissionTabs({
         type="button"
         onClick={() => onTabChange("Missing Products")}
         className={cn(
-          "flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer select-none",
+          "flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer select-none active:scale-95",
           activeTab === "Missing Products"
-            ? "bg-[#FFC800] text-black shadow-xs font-bold"
-            : "text-gray-400 hover:text-white"
+            ? "bg-[#FFC800] text-black shadow-[0_2px_12px_rgba(255,200,0,0.25)] font-bold"
+            : "text-gray-400 hover:text-white hover:bg-white/[0.04]"
         )}
       >
         <span>Missing Products</span>

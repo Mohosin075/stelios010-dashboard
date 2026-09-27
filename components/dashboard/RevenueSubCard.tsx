@@ -14,7 +14,7 @@ export const RevenueSubCard = memo(function RevenueSubCard({
   return (
     <div
       className={cn(
-        "bg-[#181A1F] border border-[#22252E] rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-colors hover:border-[#2E3340]",
+        "bg-[#15171D]/90 border border-white/[0.06] rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-200 hover:border-white/15 hover:bg-[#181A22]",
         className
       )}
     >

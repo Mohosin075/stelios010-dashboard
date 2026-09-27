@@ -11,7 +11,8 @@ export const SubscriptionStatsCards = memo(function SubscriptionStatsCards({
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 w-full">
       {/* 1. Active Subscriptions */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-4 sm:p-5">
+      <div className="card-depth card-depth-hover rounded-xl p-4 sm:p-5 overflow-hidden">
+        <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
         <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
           ACTIVE SUBSCRIPTIONS
         </p>
@@ -21,7 +22,8 @@ export const SubscriptionStatsCards = memo(function SubscriptionStatsCards({
       </div>
 
       {/* 2. Monthly Plans */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-4 sm:p-5">
+      <div className="card-depth card-depth-hover rounded-xl p-4 sm:p-5 overflow-hidden">
+        <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
         <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
           MONTHLY PLANS
         </p>
@@ -31,7 +33,8 @@ export const SubscriptionStatsCards = memo(function SubscriptionStatsCards({
       </div>
 
       {/* 3. Annual Plans */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-4 sm:p-5">
+      <div className="card-depth card-depth-hover rounded-xl p-4 sm:p-5 overflow-hidden">
+        <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
         <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
           ANNUAL PLANS
         </p>
@@ -41,7 +44,8 @@ export const SubscriptionStatsCards = memo(function SubscriptionStatsCards({
       </div>
 
       {/* 4. Monthly Revenue */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-4 sm:p-5 flex flex-col justify-between">
+      <div className="card-depth card-depth-hover rounded-xl p-4 sm:p-5 flex flex-col justify-between overflow-hidden">
+        <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
         <div>
           <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
             MONTHLY REVENUE
@@ -54,7 +58,8 @@ export const SubscriptionStatsCards = memo(function SubscriptionStatsCards({
       </div>
 
       {/* 5. Annual Revenue */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-4 sm:p-5 flex flex-col justify-between">
+      <div className="card-depth card-depth-hover rounded-xl p-4 sm:p-5 flex flex-col justify-between overflow-hidden">
+        <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
         <div>
           <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
             ANNUAL REVENUE
