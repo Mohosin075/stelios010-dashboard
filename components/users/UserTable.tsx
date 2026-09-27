@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import Link from "next/link";
 import { UserItem } from "@/types/user";
 import { cn } from "@/lib/utils";
 
@@ -132,13 +133,12 @@ export const UserTable = memo(function UserTable({
                 {/* Actions */}
                 <td className="py-3.5 px-5">
                   <div className="flex items-center gap-3">
-                    <button
-                      type="button"
-                      onClick={() => onViewUser?.(user)}
+                    <Link
+                      href={`/users/${user.id}`}
                       className="text-gray-400 hover:text-white text-xs font-medium transition-colors cursor-pointer"
                     >
                       View
-                    </button>
+                    </Link>
                     <button
                       type="button"
                       onClick={() => onManageUser?.(user)}

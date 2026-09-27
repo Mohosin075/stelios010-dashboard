@@ -20,10 +20,17 @@ export default function DashboardLayout({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const pageTitle = useMemo(() => {
-    for (const [route, title] of Object.entries(routeTitleMap)) {
-      if (pathname === route || pathname.startsWith(`${route}/`)) {
-        return title;
-      }
+    if (pathname.startsWith("/verifications/") && pathname !== "/verifications") {
+      return "Review Verification";
+    }
+    if (pathname === "/verifications") {
+      return "Bionic Verifications";
+    }
+    if (pathname.startsWith("/users/") && pathname !== "/users") {
+      return "User Details";
+    }
+    if (pathname === "/users") {
+      return "Users";
     }
     return "Dashboard";
   }, [pathname]);
