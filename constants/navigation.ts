@@ -46,16 +46,16 @@ export const DASHBOARD_NAV_SECTIONS: readonly NavSection[] = [
     title: "COMMUNITY",
     items: [
       { label: "Polls", href: "/polls", icon: BarChart3 },
-      { label: "Community", href: "/dashboard", icon: MessageSquare },
-      { label: "Reports", href: "/dashboard", icon: Flag },
-      { label: "Contact GENB", href: "/dashboard", icon: Headphones },
+      { label: "Community", href: "/community", icon: MessageSquare },
+      { label: "Reports", href: "/reports", icon: Flag },
+      { label: "Contact GENB", href: "/contact-genb", icon: Headphones },
     ],
   },
   {
     title: "SYSTEM",
     items: [
-      { label: "Notifications", href: "/dashboard", icon: Bell },
-      { label: "Settings", href: "/dashboard", icon: Sliders },
+      { label: "Notifications", href: "/notifications", icon: Bell },
+      { label: "Settings", href: "/settings", icon: Sliders },
     ],
   },
 ] as const;

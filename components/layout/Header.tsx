@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import Link from "next/link";
 import { Bell, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -40,9 +41,8 @@ export const Header = memo(function Header({
 
       <div className="flex items-center gap-4">
         {/* Notification Bell with Badge */}
-        <div
-          role="button"
-          tabIndex={0}
+        <Link
+          href="/notifications"
           className="relative cursor-pointer p-1.5 text-gray-300 hover:text-white transition-colors"
           aria-label={`${notificationCount} new notifications`}
         >
@@ -52,12 +52,15 @@ export const Header = memo(function Header({
               {notificationCount}
             </span>
           )}
-        </div>
+        </Link>
 
         {/* User Profile Avatar */}
-        <div className="w-8 h-8 rounded-full bg-[#20222A] text-gray-200 border border-[#2D313D] flex items-center justify-center font-semibold text-xs select-none">
+        <Link
+          href="/profile"
+          className="w-8 h-8 rounded-full bg-[#20222A] hover:border-gray-500 text-gray-200 border border-[#2D313D] flex items-center justify-center font-semibold text-xs select-none cursor-pointer transition-colors"
+        >
           {userInitial}
-        </div>
+        </Link>
       </div>
     </header>
   );

@@ -20,6 +20,27 @@ export default function DashboardLayout({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const pageTitle = useMemo(() => {
+    if (pathname === "/profile" || pathname === "/admin-profile") {
+      return "Admin Profile";
+    }
+    if (pathname === "/notifications") {
+      return "Notifications";
+    }
+    if (pathname === "/settings") {
+      return "Settings";
+    }
+    if (pathname.startsWith("/contact-genb/") && pathname !== "/contact-genb") {
+      return "Contact Message";
+    }
+    if (pathname === "/contact-genb") {
+      return "Contact GENB";
+    }
+    if (pathname === "/reports") {
+      return "Reports";
+    }
+    if (pathname === "/community") {
+      return "Community";
+    }
     if (pathname.startsWith("/polls/") && pathname !== "/polls") {
       return "Poll Results";
     }

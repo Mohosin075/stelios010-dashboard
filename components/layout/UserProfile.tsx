@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import Link from "next/link";
 import { LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -23,12 +24,15 @@ export const UserProfile = memo(function UserProfile({
       )}
     >
       {/* Admin User Info */}
-      <div className="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-gray-300 select-none">
+      <Link
+        href="/profile"
+        className="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-gray-300 hover:text-white hover:bg-white/[0.04] transition-colors cursor-pointer select-none"
+      >
         <div className="w-6 h-6 rounded-full bg-[#201D10] text-[#FFC800] border border-[#FFC800]/30 flex items-center justify-center font-bold text-[10px]">
           {initial}
         </div>
         <span className="text-gray-200 font-medium">{name}</span>
-      </div>
+      </Link>
 
       {/* Log Out Action */}
       <button
