@@ -20,6 +20,18 @@ export default function DashboardLayout({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const pageTitle = useMemo(() => {
+    if (pathname.startsWith("/products/") && pathname !== "/products") {
+      return "Product Details";
+    }
+    if (pathname === "/products") {
+      return "Bionic Products";
+    }
+    if (pathname.startsWith("/pioneers/") && pathname !== "/pioneers") {
+      return "Pioneer Details";
+    }
+    if (pathname === "/pioneers") {
+      return "Pioneers";
+    }
     if (pathname.startsWith("/verifications/") && pathname !== "/verifications") {
       return "Review Verification";
     }

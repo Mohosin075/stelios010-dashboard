@@ -31,8 +31,8 @@ export const DASHBOARD_NAV_SECTIONS: readonly NavSection[] = [
     items: [
       { label: "Users", href: "/users", icon: Users },
       { label: "Verifications", href: "/verifications", icon: CheckCircle2 },
-      { label: "Pioneers", href: "/dashboard", icon: Gem },
-      { label: "Products", href: "/dashboard", icon: Package },
+      { label: "Pioneers", href: "/pioneers", icon: Gem },
+      { label: "Products", href: "/products", icon: Package },
       { label: "Submissions", href: "/dashboard", icon: Send },
     ],
   },
