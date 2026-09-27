@@ -4,21 +4,29 @@ import React, { useState, useMemo, useCallback } from "react";
 import { UserTable } from "@/components/users/UserTable";
 import { UserFilters } from "@/components/users/UserFilters";
 import { Pagination } from "@/components/ui/Pagination";
+import { ViewUserModal } from "@/components/users/ViewUserModal";
+import { ManageUserModal } from "@/components/users/ManageUserModal";
 import { MOCK_USERS_DATA } from "@/constants/usersData";
 import { UserTabFilter, UserItem } from "@/types/user";
+import { toast } from "sonner";
 
 const ITEMS_PER_PAGE = 6;
 
 export default function UsersPage() {
+  const [usersList, setUsersList] = useState<UserItem[]>(MOCK_USERS_DATA);
   const [activeTab, setActiveTab] = useState<UserTabFilter>("All Users");
   const [searchQuery, setSearchQuery] = useState("");
   const [accountStatusFilter, setAccountStatusFilter] = useState("All");
   const [verificationFilter, setVerificationFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
 
+  // Modal states
+  const [viewingUser, setViewingUser] = useState<UserItem | null>(null);
+  const [managingUser, setManagingUser] = useState<UserItem | null>(null);
+
   // Filter users based on tabs and dropdown filters
   const filteredUsers = useMemo(() => {
-    return MOCK_USERS_DATA.filter((user) => {
+    return usersList.filter((user) => {
       // Tab filter
       if (activeTab === "Active Users" && user.profileType !== "Active User") {
         return false;
@@ -48,7 +56,7 @@ export default function UsersPage() {
 
       return true;
     });
-  }, [activeTab, searchQuery, accountStatusFilter, verificationFilter]);
+  }, [usersList, activeTab, searchQuery, accountStatusFilter, verificationFilter]);
 
   // Pagination calculation
   const totalItems = filteredUsers.length;
@@ -80,6 +88,21 @@ export default function UsersPage() {
     setCurrentPage(1);
   }, []);
 
+  const handleViewUser = useCallback((user: UserItem) => {
+    setViewingUser(user);
+  }, []);
+
+  const handleManageUser = useCallback((user: UserItem) => {
+    setManagingUser(user);
+  }, []);
+
+  const handleSaveUser = useCallback((updatedUser: UserItem) => {
+    setUsersList((prev) =>
+      prev.map((u) => (u.id === updatedUser.id ? updatedUser : u))
+    );
+    toast.success(`Updated settings for ${updatedUser.name}`);
+  }, []);
+
   const handlePageChange = useCallback((page: number) => {
     setCurrentPage(page);
   }, []);
@@ -99,7 +122,11 @@ export default function UsersPage() {
       />
 
       {/* 2. User Data Table */}
-      <UserTable users={paginatedUsers} />
+      <UserTable
+        users={paginatedUsers}
+        onViewUser={handleViewUser}
+        onManageUser={handleManageUser}
+      />
 
       {/* 3. Reusable Pagination Component */}
       <Pagination
@@ -109,6 +136,22 @@ export default function UsersPage() {
         itemsPerPage={ITEMS_PER_PAGE}
         onPageChange={handlePageChange}
         entityName="users"
+      />
+
+      {/* 4. Real Interactive View User Modal */}
+      <ViewUserModal
+        user={viewingUser}
+        isOpen={Boolean(viewingUser)}
+        onClose={() => setViewingUser(null)}
+        onOpenManage={handleManageUser}
+      />
+
+      {/* 5. Real Interactive Manage User Modal */}
+      <ManageUserModal
+        user={managingUser}
+        isOpen={Boolean(managingUser)}
+        onClose={() => setManagingUser(null)}
+        onSave={handleSaveUser}
       />
     </div>
   );

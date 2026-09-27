@@ -32,7 +32,7 @@ export const UserTable = memo(function UserTable({
             <th className="py-3.5 px-4">VERIFICATION</th>
             <th className="py-3.5 px-4">JOINED</th>
             <th className="py-3.5 px-4">STATUS</th>
-            <th className="py-3.5 px-5 text-right">ACTIONS</th>
+            <th className="py-3.5 px-5 text-left">ACTIONS</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-[#1A1C22]">
@@ -130,19 +130,19 @@ export const UserTable = memo(function UserTable({
                 </td>
 
                 {/* Actions */}
-                <td className="py-3.5 px-5 text-right">
-                  <div className="flex items-center justify-end gap-2">
+                <td className="py-3.5 px-5">
+                  <div className="flex items-center gap-3">
                     <button
                       type="button"
                       onClick={() => onViewUser?.(user)}
-                      className="text-gray-400 hover:text-white px-2 py-1 text-xs transition-colors cursor-pointer"
+                      className="text-gray-400 hover:text-white text-xs font-medium transition-colors cursor-pointer"
                     >
                       View
                     </button>
                     <button
                       type="button"
                       onClick={() => onManageUser?.(user)}
-                      className="bg-[#181A1F] border border-[#232630] hover:border-gray-600 text-gray-200 hover:text-white rounded-lg px-3 py-1 text-xs transition-colors cursor-pointer"
+                      className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-3.5 py-1 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
                     >
                       Manage
                     </button>
