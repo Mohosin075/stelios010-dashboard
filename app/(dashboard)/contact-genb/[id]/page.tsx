@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { ArrowLeft, FileText, Image } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { MOCK_CONTACT_MESSAGES } from "@/constants/contactData";
 import { ContactMessageStatus } from "@/types/contact";
 import { cn } from "@/lib/utils";
@@ -21,6 +21,10 @@ export default function ContactMessageDetailsPage() {
 
   const [message, setMessage] = useState(initialMessage);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    setMessage(initialMessage);
+  }, [initialMessage]);
 
   const showToast = useCallback((msg: string) => {
     setToastMessage(msg);

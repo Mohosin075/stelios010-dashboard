@@ -25,6 +25,10 @@ export default function ReviewSubmissionPage() {
   const [status, setStatus] = useState<SubmissionStatus>(item.status);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
+  React.useEffect(() => {
+    setStatus(item.status);
+  }, [item]);
+
   const showToast = useCallback((msg: string) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3500);

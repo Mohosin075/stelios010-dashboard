@@ -28,6 +28,10 @@ export default function PioneerDetailsPage() {
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
+  React.useEffect(() => {
+    setPioneer(initialPioneer);
+  }, [initialPioneer]);
+
   const showToast = useCallback((msg: string) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3500);

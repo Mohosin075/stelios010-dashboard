@@ -43,6 +43,15 @@ export default function ProductDetailsPage() {
   const [productType, setProductType] = useState<ProductType>(initialProduct.productType);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
+  React.useEffect(() => {
+    setProduct(initialProduct);
+    setName(initialProduct.name);
+    setPioneerName(initialProduct.pioneerName);
+    setDescription(initialProduct.description);
+    setLimbCategory(initialProduct.limbCategory);
+    setProductType(initialProduct.productType);
+  }, [initialProduct]);
+
   const isDirty = useMemo(() => {
     return (
       name !== product.name ||
