@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import TopStatsGrid from "@/components/dashboard/TopStatsGrid";
 import PioneerRevenueCard from "@/components/dashboard/PioneerRevenueCard";
 import PendingActionsCard from "@/components/dashboard/PendingActionsCard";
+import RecentActivityCard from "@/components/dashboard/RecentActivityCard";
 import { GenbDashboardStats } from "@/types/dashboard";
 
 export const initialGenbStats: GenbDashboardStats = {
@@ -97,13 +98,57 @@ export const initialGenbStats: GenbDashboardStats = {
       badgeType: "green",
     },
   ],
+  recentActivities: [
+    {
+      id: "act-1",
+      title: "New verification submitted",
+      subtitle: "Sofia Reyes — X3 Knee by Ottobock",
+      timestamp: "2 hours ago",
+      type: "verification",
+    },
+    {
+      id: "act-2",
+      title: "New Contact GENB message",
+      subtitle: "Bug report from Marcus Chen",
+      timestamp: "3 hours ago",
+      type: "contact",
+    },
+    {
+      id: "act-3",
+      title: "Pioneer subscription activated",
+      subtitle: "Open Bionics — Annual Plan",
+      timestamp: "1 day ago",
+      type: "subscription",
+    },
+    {
+      id: "act-4",
+      title: "Report received",
+      subtitle: "Profile reported by Marcus Chen",
+      timestamp: "1 day ago",
+      type: "report",
+    },
+    {
+      id: "act-5",
+      title: "New Pioneer submitted",
+      subtitle: "Naked Prosthetics — submitted by Marcus Chen",
+      timestamp: "2 days ago",
+      type: "pioneer",
+    },
+    {
+      id: "act-6",
+      title: "New verification submitted",
+      subtitle: "Marcus Chen — Michelangelo Hand by Ottobock",
+      timestamp: "2 days ago",
+      type: "verification",
+    },
+  ],
 };
 
 export default function DashboardPage() {
   const [stats] = useState<GenbDashboardStats>(initialGenbStats);
 
   return (
-    <div className="space-y-4 max-w-7xl mx-auto">
+    <div className="w-full space-y-4">
       {/* Top 6 Stats Cards */}
       <TopStatsGrid stats={stats} />
 
@@ -112,6 +157,9 @@ export default function DashboardPage() {
         <PioneerRevenueCard revenue={stats.pioneerRevenue} />
         <PendingActionsCard actions={stats.pendingActions} />
       </div>
+
+      {/* Recent Admin-Relevant Activity */}
+      <RecentActivityCard activities={stats.recentActivities} />
     </div>
   );
 }

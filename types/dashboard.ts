@@ -19,6 +19,14 @@ export interface PendingAction {
   link?: string;
 }
 
+export interface RecentActivityItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  timestamp: string;
+  type: "verification" | "contact" | "subscription" | "report" | "pioneer";
+}
+
 export interface GenbDashboardStats {
   totalUsers: MetricStat;
   activeUsers: MetricStat;
@@ -33,4 +41,5 @@ export interface GenbDashboardStats {
     activeAnnualPlans: RevenueMetric;
   };
   pendingActions: PendingAction[];
+  recentActivities: RecentActivityItem[];
 }
