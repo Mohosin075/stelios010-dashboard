@@ -20,6 +20,21 @@ export default function DashboardLayout({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const pageTitle = useMemo(() => {
+    if (pathname.startsWith("/polls/") && pathname !== "/polls") {
+      return "Poll Results";
+    }
+    if (pathname === "/polls") {
+      return "Polls";
+    }
+    if (pathname === "/subscriptions") {
+      return "Subscriptions";
+    }
+    if (pathname.startsWith("/submissions/") && pathname !== "/submissions") {
+      return pathname.includes("pioneer") ? "Review Pioneer Submission" : "Review Product Submission";
+    }
+    if (pathname === "/submissions") {
+      return "Submissions";
+    }
     if (pathname.startsWith("/products/") && pathname !== "/products") {
       return "Product Details";
     }

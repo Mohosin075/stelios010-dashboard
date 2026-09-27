@@ -33,19 +33,19 @@ export const DASHBOARD_NAV_SECTIONS: readonly NavSection[] = [
       { label: "Verifications", href: "/verifications", icon: CheckCircle2 },
       { label: "Pioneers", href: "/pioneers", icon: Gem },
       { label: "Products", href: "/products", icon: Package },
-      { label: "Submissions", href: "/dashboard", icon: Send },
+      { label: "Submissions", href: "/submissions", icon: Send },
     ],
   },
   {
     title: "BUSINESS",
     items: [
-      { label: "Subscriptions", href: "/dashboard", icon: PieChart },
+      { label: "Subscriptions", href: "/subscriptions", icon: PieChart },
     ],
   },
   {
     title: "COMMUNITY",
     items: [
-      { label: "Polls", href: "/dashboard", icon: BarChart3 },
+      { label: "Polls", href: "/polls", icon: BarChart3 },
       { label: "Community", href: "/dashboard", icon: MessageSquare },
       { label: "Reports", href: "/dashboard", icon: Flag },
       { label: "Contact GENB", href: "/dashboard", icon: Headphones },
