@@ -74,7 +74,8 @@ export default function ReviewSubmissionPage() {
 
       <div className="max-w-xl space-y-4">
         {/* Card 1: Top Header Info */}
-        <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6 space-y-1">
+        <div className="card-depth rounded-xl p-5 md:p-6 space-y-1 overflow-hidden">
+          <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
           <h1 className="text-base font-semibold text-white tracking-tight">
             {title}
           </h1>
@@ -84,7 +85,8 @@ export default function ReviewSubmissionPage() {
         </div>
 
         {/* Card 2: Submission Details */}
-        <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6 space-y-5">
+        <div className="card-depth rounded-xl p-5 md:p-6 space-y-5 overflow-hidden">
+          <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
           <h2 className="text-sm font-semibold text-white tracking-wide">
             Submission Details
           </h2>
@@ -96,7 +98,7 @@ export default function ReviewSubmissionPage() {
                 <label className="block text-xs font-medium text-gray-400 mb-1.5">
                   Product Name
                 </label>
-                <div className="w-full bg-[#161820] border border-[#232630] text-gray-200 rounded-lg px-3.5 py-2.5 text-xs select-text">
+                <div className="w-full bg-[#0D0E12]/85 border border-white/[0.08] text-gray-200 rounded-lg px-3.5 py-2.5 text-xs select-text">
                   {productName}
                 </div>
               </div>
@@ -108,7 +110,7 @@ export default function ReviewSubmissionPage() {
                 <label className="block text-xs font-medium text-gray-400 mb-1.5">
                   Pioneer Name
                 </label>
-                <div className="w-full bg-[#161820] border border-[#232630] text-gray-200 rounded-lg px-3.5 py-2.5 text-xs select-text">
+                <div className="w-full bg-[#0D0E12]/85 border border-white/[0.08] text-gray-200 rounded-lg px-3.5 py-2.5 text-xs select-text">
                   {pioneerName}
                 </div>
               </div>
@@ -146,18 +148,18 @@ export default function ReviewSubmissionPage() {
 
           {/* Action buttons if status is Pending or allow toggling */}
           {status === "Pending" && (
-            <div className="flex items-center gap-3 pt-3 border-t border-[#1E2026]">
+            <div className="flex items-center gap-3 pt-3 border-t border-white/[0.06]">
               <button
                 type="button"
                 onClick={handleApprove}
-                className="px-4 py-2 text-xs font-semibold text-black bg-[#10B981] hover:bg-[#059669] rounded-lg transition-colors cursor-pointer"
+                className="px-4 py-2 text-xs font-semibold text-black bg-[#10B981] hover:bg-[#059669] rounded-lg shadow-[0_2px_12px_rgba(16,185,129,0.25)] transition-all cursor-pointer active:scale-95"
               >
                 Approve Submission
               </button>
               <button
                 type="button"
                 onClick={handleReject}
-                className="px-4 py-2 text-xs font-semibold text-white bg-[#EF4444] hover:bg-[#DC2626] rounded-lg transition-colors cursor-pointer"
+                className="px-4 py-2 text-xs font-semibold text-white bg-[#EF4444] hover:bg-[#DC2626] rounded-lg shadow-[0_2px_12px_rgba(239,68,68,0.25)] transition-all cursor-pointer active:scale-95"
               >
                 Reject Submission
               </button>

@@ -31,7 +31,7 @@ export const ProductFilters = memo(function ProductFilters({
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search products..."
-          className="w-full bg-[#121316] border border-[#1E2026] text-gray-200 placeholder-gray-500 rounded-lg px-4 py-2.5 text-xs focus:outline-none focus:border-[#FFC800] focus:ring-1 focus:ring-[#FFC800] transition-colors"
+          className="w-full input-depth text-gray-200 placeholder-gray-500 rounded-lg px-4 py-2.5 text-xs focus:outline-none"
         />
       </div>
 
@@ -40,7 +40,7 @@ export const ProductFilters = memo(function ProductFilters({
         <select
           value={category}
           onChange={(e) => onCategoryChange(e.target.value)}
-          className="appearance-none bg-[#121316] border border-[#1E2026] text-gray-300 rounded-lg pl-3.5 pr-8 py-2.5 text-xs focus:outline-none focus:border-[#FFC800] cursor-pointer hover:border-gray-600 transition-colors"
+          className="appearance-none bg-[#0D0E12]/85 border border-white/[0.08] text-gray-300 rounded-lg pl-3.5 pr-8 py-2.5 text-xs focus:outline-none focus:border-[#FFC800]/80 focus:ring-2 focus:ring-[#FFC800]/20 cursor-pointer hover:border-white/20 transition-all"
         >
           <option value="ALL">Category</option>
           <option value="Upper Limb">Upper Limb</option>
@@ -54,7 +54,7 @@ export const ProductFilters = memo(function ProductFilters({
         <select
           value={pioneer}
           onChange={(e) => onPioneerChange(e.target.value)}
-          className="appearance-none bg-[#121316] border border-[#1E2026] text-gray-300 rounded-lg pl-3.5 pr-8 py-2.5 text-xs focus:outline-none focus:border-[#FFC800] cursor-pointer hover:border-gray-600 transition-colors"
+          className="appearance-none bg-[#0D0E12]/85 border border-white/[0.08] text-gray-300 rounded-lg pl-3.5 pr-8 py-2.5 text-xs focus:outline-none focus:border-[#FFC800]/80 focus:ring-2 focus:ring-[#FFC800]/20 cursor-pointer hover:border-white/20 transition-all"
         >
           <option value="ALL">Pioneer</option>
           {pioneersList.map((p) => (

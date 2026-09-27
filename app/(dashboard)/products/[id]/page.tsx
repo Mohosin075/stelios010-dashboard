@@ -106,29 +106,31 @@ export default function ProductDetailsPage() {
         {/* Left Column: Media & Voice of User Summary (approx 5 cols) */}
         <div className="lg:col-span-5 space-y-4">
           {/* 1. Product Media Card */}
-          <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6 space-y-4">
+          <div className="card-depth rounded-xl p-5 md:p-6 space-y-4 overflow-hidden">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
             <h2 className="text-sm font-semibold text-white tracking-wide">
               Product Media
             </h2>
 
             {/* Upload product image box */}
-            <div className="border border-dashed border-[#232630] rounded-xl p-8 flex flex-col items-center justify-center gap-2.5 hover:border-gray-500 bg-[#14161C]/50 transition-colors cursor-pointer group">
-              <div className="w-8 h-8 border border-gray-600 group-hover:border-gray-400 rotate-45 flex items-center justify-center transition-colors" />
-              <p className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
+            <div className="border border-dashed border-white/[0.1] rounded-xl p-8 flex flex-col items-center justify-center gap-2.5 hover:border-white/20 bg-[#0D0E12]/60 transition-colors cursor-pointer group">
+              <div className="w-8 h-8 border border-white/20 group-hover:border-[#FFC800] rotate-45 flex items-center justify-center transition-colors" />
+              <p className="text-xs text-gray-500 group-hover:text-gray-300 transition-colors">
                 Upload product image
               </p>
             </div>
 
             {/* Upload product video box */}
-            <div className="border border-dashed border-[#232630] rounded-xl p-6 flex flex-col items-center justify-center gap-2 hover:border-gray-500 bg-[#14161C]/50 transition-colors cursor-pointer group">
-              <p className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
+            <div className="border border-dashed border-white/[0.1] rounded-xl p-6 flex flex-col items-center justify-center gap-2 hover:border-white/20 bg-[#0D0E12]/60 transition-colors cursor-pointer group">
+              <p className="text-xs text-gray-500 group-hover:text-gray-300 transition-colors">
                 Upload product video
               </p>
             </div>
           </div>
 
           {/* 2. Voice of User Summary Card */}
-          <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6 space-y-4">
+          <div className="card-depth rounded-xl p-5 md:p-6 space-y-4 overflow-hidden">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
             <h2 className="text-sm font-semibold text-white tracking-wide">
               Voice of User Summary
             </h2>
@@ -138,7 +140,7 @@ export default function ProductDetailsPage() {
               {product.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full text-xs font-medium bg-[#252110] text-[#FFC800] border border-[#FFC800]/40 select-none"
+                  className="px-3 py-1 rounded-full text-xs font-medium bg-[#FFC800]/10 text-[#FFC800] border border-[#FFC800]/30 shadow-[0_0_8px_rgba(255,200,0,0.1)] select-none"
                 >
                   {tag}
                 </span>
@@ -153,7 +155,8 @@ export default function ProductDetailsPage() {
 
         {/* Right Column: Edit Product Form (approx 7 cols) */}
         <div className="lg:col-span-7">
-          <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6">
+          <div className="card-depth rounded-xl p-5 md:p-6 overflow-hidden">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
             <h2 className="text-sm font-semibold text-white tracking-wide mb-5">
               Edit Product
             </h2>
@@ -266,7 +269,7 @@ export default function ProductDetailsPage() {
                 <button
                   type="button"
                   onClick={() => router.push("/products")}
-                  className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-4 py-2 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
+                  className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-4 py-2 text-xs font-medium transition-all cursor-pointer active:scale-95"
                 >
                   Cancel
                 </button>
@@ -274,10 +277,10 @@ export default function ProductDetailsPage() {
                   type="submit"
                   disabled={!isDirty}
                   className={cn(
-                    "text-xs font-medium transition-all duration-150 rounded-lg",
+                    "text-xs font-semibold transition-all duration-150 rounded-lg active:scale-95",
                     isDirty
-                      ? "px-4 py-2 font-semibold text-black bg-[#FFC800] hover:bg-[#E5B400] cursor-pointer shadow-xs"
-                      : "text-gray-500 hover:text-gray-400 px-3 py-2 cursor-pointer"
+                      ? "px-5 py-2 text-black bg-[#FFC800] hover:bg-[#F5BF00] cursor-pointer shadow-[0_2px_12px_rgba(255,200,0,0.25)]"
+                      : "text-gray-500 hover:text-gray-400 px-4 py-2 cursor-pointer border border-white/[0.06] bg-white/[0.02]"
                   )}
                 >
                   Save Changes

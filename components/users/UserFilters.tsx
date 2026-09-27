@@ -35,7 +35,7 @@ export const UserFilters = memo(function UserFilters({
   return (
     <div className={cn("space-y-4", className)}>
       {/* 1. Tab Bar */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-1.5 flex gap-2 w-fit">
+      <div className="tab-depth rounded-xl p-1.5 flex gap-1.5 w-fit">
         {tabs.map((tab) => {
           const isActive = activeTab === tab;
           return (
@@ -44,10 +44,10 @@ export const UserFilters = memo(function UserFilters({
               type="button"
               onClick={() => onTabChange(tab)}
               className={cn(
-                "px-4 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 cursor-pointer select-none",
+                "px-4 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 cursor-pointer select-none active:scale-95",
                 isActive
-                  ? "bg-[#FFC800] text-black shadow-xs font-bold"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-[#FFC800] text-black shadow-[0_2px_10px_rgba(255,200,0,0.3)] font-bold"
+                  : "text-gray-400 hover:text-white hover:bg-white/[0.04]"
               )}
             >
               {tab}
@@ -65,7 +65,7 @@ export const UserFilters = memo(function UserFilters({
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search users..."
-            className="w-full bg-[#121316] border border-[#1E2026] text-gray-200 placeholder-gray-500 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#FFC800] focus:ring-1 focus:ring-[#FFC800] transition-colors"
+            className="w-full input-depth text-gray-200 placeholder-gray-500 rounded-lg px-3.5 py-2 text-xs focus:outline-none"
           />
         </div>
 
@@ -74,7 +74,7 @@ export const UserFilters = memo(function UserFilters({
           <select
             value={accountStatusFilter}
             onChange={(e) => onAccountStatusChange(e.target.value)}
-            className="appearance-none bg-[#121316] border border-[#1E2026] text-gray-300 rounded-lg pl-3.5 pr-8 py-2 text-xs focus:outline-none focus:border-[#FFC800] cursor-pointer"
+            className="appearance-none bg-[#0D0E12]/85 border border-white/[0.08] text-gray-300 hover:border-white/20 rounded-lg pl-3.5 pr-8 py-2 text-xs focus:outline-none focus:border-[#FFC800]/80 focus:ring-2 focus:ring-[#FFC800]/20 cursor-pointer transition-all"
           >
             <option value="All">Account Status</option>
             <option value="Active">Active</option>
@@ -90,7 +90,7 @@ export const UserFilters = memo(function UserFilters({
           <select
             value={verificationFilter}
             onChange={(e) => onVerificationChange(e.target.value)}
-            className="appearance-none bg-[#121316] border border-[#1E2026] text-gray-300 rounded-lg pl-3.5 pr-8 py-2 text-xs focus:outline-none focus:border-[#FFC800] cursor-pointer"
+            className="appearance-none bg-[#0D0E12]/85 border border-white/[0.08] text-gray-300 hover:border-white/20 rounded-lg pl-3.5 pr-8 py-2 text-xs focus:outline-none focus:border-[#FFC800]/80 focus:ring-2 focus:ring-[#FFC800]/20 cursor-pointer transition-all"
           >
             <option value="All">Verification Status</option>
             <option value="Verified">Verified</option>

@@ -56,7 +56,7 @@ export default function ReportsPage() {
       )}
 
       {/* 1. Tabs */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-1.5 flex items-center gap-2 w-full">
+      <div className="tab-depth rounded-2xl p-1.5 flex items-center gap-1.5 w-full">
         <button
           type="button"
           onClick={() => {
@@ -64,10 +64,10 @@ export default function ReportsPage() {
             setCurrentPage(1);
           }}
           className={cn(
-            "flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer select-none",
+            "flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer select-none active:scale-95",
             activeTab === "Open"
-              ? "bg-[#FFC800] text-black shadow-xs font-bold"
-              : "text-gray-400 hover:text-white"
+              ? "bg-[#FFC800] text-black shadow-[0_2px_10px_rgba(255,200,0,0.3)] font-bold"
+              : "text-gray-400 hover:text-white hover:bg-white/[0.04]"
           )}
         >
           <span>Open</span>
@@ -88,10 +88,10 @@ export default function ReportsPage() {
             setCurrentPage(1);
           }}
           className={cn(
-            "flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer select-none",
+            "flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer select-none active:scale-95",
             activeTab === "Resolved"
-              ? "bg-[#FFC800] text-black shadow-xs font-bold"
-              : "text-gray-400 hover:text-white"
+              ? "bg-[#FFC800] text-black shadow-[0_2px_10px_rgba(255,200,0,0.3)] font-bold"
+              : "text-gray-400 hover:text-white hover:bg-white/[0.04]"
           )}
         >
           <span>Resolved</span>
@@ -107,10 +107,10 @@ export default function ReportsPage() {
       </div>
 
       {/* 2. Table */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl overflow-x-auto">
+      <div className="table-depth">
         <table className="w-full text-left text-xs whitespace-nowrap">
           <thead>
-            <tr className="border-b border-[#1E2026] text-[11px] font-semibold text-gray-500 uppercase tracking-wider">
+            <tr className="border-b border-white/[0.06] bg-white/[0.02] text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
               <th className="py-3.5 px-5">REPORTED ITEM</th>
               <th className="py-3.5 px-4">TYPE</th>
               <th className="py-3.5 px-4">REPORTED BY</th>
@@ -120,7 +120,7 @@ export default function ReportsPage() {
               <th className="py-3.5 px-5 text-left">REVIEW</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#1A1C22]">
+          <tbody className="divide-y divide-white/[0.04]">
             {paginatedReports.length === 0 ? (
               <tr>
                 <td colSpan={7} className="py-8 text-center text-gray-500">
@@ -181,7 +181,7 @@ export default function ReportsPage() {
                       <button
                         type="button"
                         onClick={() => handleResolve(report.id)}
-                        className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-3.5 py-1 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
+                        className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-3 py-1 text-xs font-medium transition-all cursor-pointer active:scale-95"
                       >
                         Resolve
                       </button>

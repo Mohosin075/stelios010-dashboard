@@ -21,17 +21,17 @@ export default function NotificationsPage() {
   return (
     <div className="w-full space-y-4">
       {/* Notifications Table */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl overflow-x-auto">
+      <div className="table-depth">
         <table className="w-full text-left text-xs whitespace-nowrap">
           <thead>
-            <tr className="border-b border-[#1E2026] text-[11px] font-semibold text-gray-500 uppercase tracking-wider">
+            <tr className="border-b border-white/[0.06] bg-white/[0.02] text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
               <th className="py-3.5 px-5">TITLE</th>
               <th className="py-3.5 px-4">AUDIENCE</th>
               <th className="py-3.5 px-4">DATE</th>
               <th className="py-3.5 px-5 text-left">STATUS</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#1A1C22]">
+          <tbody className="divide-y divide-white/[0.04]">
             {paginatedList.length === 0 ? (
               <tr>
                 <td colSpan={4} className="py-8 text-center text-gray-500">
@@ -42,7 +42,7 @@ export default function NotificationsPage() {
               paginatedList.map((notif) => (
                 <tr
                   key={notif.id}
-                  className="hover:bg-white/[0.015] transition-colors"
+                  className="hover:bg-white/[0.025] transition-colors duration-150"
                 >
                   {/* Title & Description */}
                   <td className="py-3.5 px-5 max-w-md">

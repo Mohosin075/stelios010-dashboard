@@ -9,10 +9,10 @@ interface PendingActionRowProps {
 }
 
 const badgeVariants: Record<PendingAction["badgeType"], string> = {
-  yellow: "bg-[#282310] text-[#FFC800] border border-[#FFC800]/30",
-  purple: "bg-[#1C1D33] text-[#818CF8] border border-[#818CF8]/30",
-  red: "bg-[#30161A] text-[#F87171] border border-[#F87171]/30",
-  green: "bg-[#112920] text-[#34D399] border border-[#34D399]/30",
+  yellow: "bg-[#FFC800]/10 text-[#FFC800] border border-[#FFC800]/30 shadow-[0_0_8px_rgba(255,200,0,0.12)]",
+  purple: "bg-[#818CF8]/10 text-[#818CF8] border border-[#818CF8]/30 shadow-[0_0_8px_rgba(129,140,248,0.12)]",
+  red: "bg-[#F87171]/10 text-[#F87171] border border-[#F87171]/30 shadow-[0_0_8px_rgba(248,113,113,0.12)]",
+  green: "bg-[#34D399]/10 text-[#34D399] border border-[#34D399]/30 shadow-[0_0_8px_rgba(52,211,153,0.12)]",
 };
 
 export const PendingActionRow = memo(function PendingActionRow({
@@ -24,16 +24,16 @@ export const PendingActionRow = memo(function PendingActionRow({
     <div
       onClick={() => onActionClick?.(action)}
       className={cn(
-        "group flex items-center justify-between px-4 py-3.5 bg-[#181A1F] border border-[#22252E] rounded-xl hover:border-[#2E3340] transition-colors cursor-pointer",
+        "group flex items-center justify-between px-4 py-3 bg-[#15171D]/80 border border-white/[0.06] rounded-xl hover:border-white/15 hover:bg-[#191B24] transition-all duration-150 cursor-pointer active:scale-[0.99]",
         className
       )}
     >
-      <span className="text-xs sm:text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
+      <span className="text-xs sm:text-sm font-medium text-gray-300 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-150">
         {action.title}
       </span>
       <span
         className={cn(
-          "w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold",
+          "w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-transform duration-150 group-hover:scale-105",
           badgeVariants[action.badgeType]
         )}
       >

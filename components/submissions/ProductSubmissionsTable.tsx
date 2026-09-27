@@ -2,6 +2,7 @@
 
 import React, { memo } from "react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { ProductSubmissionItem } from "@/types/submission";
 
 interface ProductSubmissionsTableProps {
@@ -14,10 +15,10 @@ export const ProductSubmissionsTable = memo(function ProductSubmissionsTable({
   className,
 }: ProductSubmissionsTableProps) {
   return (
-    <div className="bg-[#121316] border border-[#1E2026] rounded-xl overflow-x-auto">
+    <div className={cn("table-depth", className)}>
       <table className="w-full text-left text-xs whitespace-nowrap">
         <thead>
-          <tr className="border-b border-[#1E2026] text-[11px] font-semibold text-gray-500 uppercase tracking-wider">
+          <tr className="border-b border-white/[0.06] bg-white/[0.02] text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
             <th className="py-3.5 px-5">PRODUCT NAME</th>
             <th className="py-3.5 px-4">PIONEER NAME</th>
             <th className="py-3.5 px-4">WEBSITE</th>
@@ -27,7 +28,7 @@ export const ProductSubmissionsTable = memo(function ProductSubmissionsTable({
             <th className="py-3.5 px-5 text-left">REVIEW</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-[#1A1C22]">
+        <tbody className="divide-y divide-white/[0.04]">
           {submissions.length === 0 ? (
             <tr>
               <td colSpan={7} className="py-8 text-center text-gray-500">
@@ -85,7 +86,7 @@ export const ProductSubmissionsTable = memo(function ProductSubmissionsTable({
                   {sub.status !== "Pending" ? (
                     <Link
                       href={`/submissions/${sub.id}`}
-                      className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-3.5 py-1 text-xs font-medium transition-all hover:bg-[#1E212B] inline-block cursor-pointer"
+                      className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-3 py-1 text-xs font-medium transition-all inline-block cursor-pointer active:scale-95"
                     >
                       View
                     </Link>

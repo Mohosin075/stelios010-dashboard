@@ -25,7 +25,8 @@ export const RecentActivityCard = memo(function RecentActivityCard({
   }, [activities, currentPage, itemsPerPage]);
 
   return (
-    <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 sm:p-6 space-y-4">
+    <div className="card-depth rounded-xl p-5 sm:p-6 space-y-4 overflow-hidden">
+      <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
       <div className="flex items-center justify-between">
         <h2 className="text-sm sm:text-base font-semibold text-gray-200 tracking-wide">
           Recent Admin-Relevant Activity
@@ -35,7 +36,7 @@ export const RecentActivityCard = memo(function RecentActivityCard({
         </span>
       </div>
 
-      <div className="divide-y divide-[#1B1D25]">
+      <div className="divide-y divide-white/[0.04]">
         {paginatedActivities.map((item) => (
           <ActivityRow key={item.id} activity={item} />
         ))}
@@ -49,7 +50,7 @@ export const RecentActivityCard = memo(function RecentActivityCard({
         itemsPerPage={itemsPerPage}
         onPageChange={setCurrentPage}
         entityName="activities"
-        className="mt-4 border-none bg-[#161820] py-2 px-3"
+        className="mt-4 border-none bg-white/[0.02] py-2 px-3"
       />
     </div>
   );

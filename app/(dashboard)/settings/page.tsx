@@ -38,7 +38,8 @@ export default function SettingsPage() {
 
       <div className="max-w-xl space-y-4">
         {/* Card 1: Admin Account */}
-        <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6 space-y-5">
+        <div className="card-depth rounded-xl p-5 md:p-6 space-y-5 overflow-hidden">
+          <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
           <h2 className="text-sm font-semibold text-white tracking-wide">
             Admin Account
           </h2>
@@ -46,13 +47,13 @@ export default function SettingsPage() {
           {/* Profile Header with Avatar & Edit Badge */}
           <div className="flex items-center gap-4">
             <div className="relative">
-              <div className="w-14 h-14 rounded-xl bg-[#252110] text-[#FFC800] border border-[#FFC800]/30 flex items-center justify-center font-bold text-xl select-none">
+              <div className="w-14 h-14 rounded-xl bg-[#FFC800]/15 text-[#FFC800] border border-[#FFC800]/30 shadow-[0_0_12px_rgba(255,200,0,0.15)] flex items-center justify-center font-bold text-xl select-none">
                 A
               </div>
               <button
                 type="button"
                 onClick={() => showToast("Avatar upload feature opened.")}
-                className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#FFC800] text-black flex items-center justify-center shadow-xs hover:scale-105 transition-transform cursor-pointer"
+                className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#FFC800] text-black flex items-center justify-center shadow-xs hover:scale-110 active:scale-95 transition-transform cursor-pointer"
                 title="Edit avatar"
               >
                 <Pencil className="w-2.5 h-2.5" />
@@ -75,7 +76,7 @@ export default function SettingsPage() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full bg-[#161820] border border-[#232630] text-gray-200 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#FFC800] transition-colors"
+                className="w-full input-depth text-gray-200 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none"
               />
             </div>
 
@@ -87,14 +88,14 @@ export default function SettingsPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-[#161820] border border-[#232630] text-gray-200 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#FFC800] transition-colors"
+                className="w-full input-depth text-gray-200 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none"
               />
             </div>
 
             <div className="pt-1 flex justify-end">
               <button
                 type="submit"
-                className="text-xs font-medium text-gray-500 hover:text-white transition-colors cursor-pointer"
+                className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-4 py-2 text-xs font-semibold transition-all active:scale-95 cursor-pointer"
               >
                 Save Profile
               </button>
@@ -103,7 +104,8 @@ export default function SettingsPage() {
         </div>
 
         {/* Card 2: Security */}
-        <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6 space-y-5">
+        <div className="card-depth rounded-xl p-5 md:p-6 space-y-5 overflow-hidden">
+          <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
           <h2 className="text-sm font-semibold text-white tracking-wide">
             Security
           </h2>
@@ -117,7 +119,7 @@ export default function SettingsPage() {
                 type="password"
                 value={currentPassword}
                 onChange={(e) => setCurrentPassword(e.target.value)}
-                className="w-full bg-[#161820] border border-[#232630] text-gray-200 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#FFC800] transition-colors"
+                className="w-full input-depth text-gray-200 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none"
               />
             </div>
 
@@ -129,7 +131,7 @@ export default function SettingsPage() {
                 type="password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
-                className="w-full bg-[#161820] border border-[#232630] text-gray-200 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#FFC800] transition-colors"
+                className="w-full input-depth text-gray-200 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none"
               />
             </div>
 
@@ -141,14 +143,14 @@ export default function SettingsPage() {
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full bg-[#161820] border border-[#232630] text-gray-200 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#FFC800] transition-colors"
+                className="w-full input-depth text-gray-200 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none"
               />
             </div>
 
             <div className="pt-2 flex justify-end">
               <button
                 type="submit"
-                className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-4 py-2 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
+                className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-4 py-2 text-xs font-semibold transition-all active:scale-95 cursor-pointer"
               >
                 Change Password
               </button>

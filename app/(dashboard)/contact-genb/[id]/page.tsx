@@ -62,7 +62,8 @@ export default function ContactMessageDetailsPage() {
 
       <div className="max-w-2xl">
         {/* Main Message Card */}
-        <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 md:p-6 space-y-5">
+        <div className="card-depth rounded-xl p-5 md:p-6 space-y-5 overflow-hidden">
+          <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
           {/* Header Row */}
           <div className="flex items-start justify-between gap-4">
             <div className="space-y-1">
@@ -76,7 +77,7 @@ export default function ContactMessageDetailsPage() {
                   </span>
                 )}
                 {message.type === "Suggestion" && (
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#252110] text-[#FFC800] border border-[#FFC800]/25">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#FFC800]/10 text-[#FFC800] border border-[#FFC800]/25">
                     Suggestion
                   </span>
                 )}
@@ -106,7 +107,7 @@ export default function ContactMessageDetailsPage() {
           </div>
 
           {/* Message Content Box */}
-          <div className="bg-[#161820] border border-[#232630] rounded-xl p-4 text-xs text-gray-200 leading-relaxed">
+          <div className="bg-[#0D0E12]/85 border border-white/[0.08] rounded-xl p-4 text-xs text-gray-200 leading-relaxed">
             {message.fullMessage}
           </div>
 
@@ -117,11 +118,11 @@ export default function ContactMessageDetailsPage() {
                 ATTACHMENTS
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-14 h-14 rounded-xl bg-[#161820] border border-[#232630] flex items-center justify-center text-gray-300 hover:border-gray-500 transition-colors cursor-pointer">
-                  <div className="w-4 h-4 bg-gray-200 rounded-xs" />
+                <div className="w-14 h-14 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.06] flex items-center justify-center text-gray-300 transition-all cursor-pointer active:scale-95">
+                  <div className="w-4 h-4 bg-gray-300 rounded-xs" />
                 </div>
-                <div className="w-14 h-14 rounded-xl bg-[#161820] border border-[#232630] flex items-center justify-center text-gray-300 hover:border-gray-500 transition-colors cursor-pointer">
-                  <div className="w-4 h-4 bg-gray-200 rounded-xs" />
+                <div className="w-14 h-14 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.06] flex items-center justify-center text-gray-300 transition-all cursor-pointer active:scale-95">
+                  <div className="w-4 h-4 bg-gray-300 rounded-xs" />
                 </div>
               </div>
             </div>
@@ -136,7 +137,7 @@ export default function ContactMessageDetailsPage() {
                   setMessage((prev) => ({ ...prev, status: "Read" }));
                   showToast("Message marked as unresolved.");
                 }}
-                className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-3.5 py-1.5 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
+                className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-4 py-1.5 text-xs font-semibold transition-all cursor-pointer active:scale-95"
               >
                 Mark Unresolved
               </button>
@@ -144,7 +145,7 @@ export default function ContactMessageDetailsPage() {
               <button
                 type="button"
                 onClick={handleMarkResolved}
-                className="text-xs font-medium text-gray-500 hover:text-white transition-colors cursor-pointer"
+                className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-4 py-1.5 text-xs font-semibold transition-all cursor-pointer active:scale-95"
               >
                 Mark Resolved
               </button>

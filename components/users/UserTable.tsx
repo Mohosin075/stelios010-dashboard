@@ -19,13 +19,13 @@ export const UserTable = memo(function UserTable({
   return (
     <div
       className={cn(
-        "bg-[#121316] border border-[#1E2026] rounded-xl overflow-x-auto",
+        "table-depth",
         className
       )}
     >
       <table className="w-full text-left text-xs whitespace-nowrap">
         <thead>
-          <tr className="border-b border-[#1E2026] text-[11px] font-semibold text-gray-500 uppercase tracking-wider">
+          <tr className="border-b border-white/[0.06] bg-white/[0.02] text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
             <th className="py-3.5 px-5">USER</th>
             <th className="py-3.5 px-4">PROFILE TYPE</th>
             <th className="py-3.5 px-4">LOCATION</th>
@@ -36,7 +36,7 @@ export const UserTable = memo(function UserTable({
             <th className="py-3.5 px-5 text-left">ACTIONS</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-[#1A1C22]">
+        <tbody className="divide-y divide-white/[0.04]">
           {users.length === 0 ? (
             <tr>
               <td colSpan={8} className="py-8 text-center text-gray-500">
@@ -47,7 +47,7 @@ export const UserTable = memo(function UserTable({
             users.map((user) => (
               <tr
                 key={user.id}
-                className="hover:bg-white/[0.015] transition-colors"
+                className="hover:bg-white/[0.025] transition-colors duration-150"
               >
                 {/* User avatar + name + email */}
                 <td className="py-3.5 px-5">
@@ -56,8 +56,8 @@ export const UserTable = memo(function UserTable({
                       className={cn(
                         "w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shrink-0 select-none",
                         user.isYellowAvatar
-                          ? "bg-[#252110] text-[#FFC800] border border-[#FFC800]/30"
-                          : "bg-[#1E2026] text-gray-300 border border-gray-700/50"
+                          ? "bg-[#FFC800]/15 text-[#FFC800] border border-[#FFC800]/30 shadow-[0_0_8px_rgba(255,200,0,0.12)]"
+                          : "bg-[#1E2026] text-gray-300 border border-white/[0.08]"
                       )}
                     >
                       {user.initials}
@@ -135,14 +135,14 @@ export const UserTable = memo(function UserTable({
                   <div className="flex items-center gap-3">
                     <Link
                       href={`/users/${user.id}`}
-                      className="text-gray-400 hover:text-white text-xs font-medium transition-colors cursor-pointer"
+                      className="text-gray-400 hover:text-[#FFC800] text-xs font-medium transition-colors cursor-pointer"
                     >
                       View
                     </Link>
                     <button
                       type="button"
                       onClick={() => onManageUser?.(user)}
-                      className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-3.5 py-1 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
+                      className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-3 py-1 text-xs font-medium transition-all cursor-pointer active:scale-95"
                     >
                       Manage
                     </button>

@@ -4,7 +4,8 @@ export const SubscriptionPlanBanners = memo(function SubscriptionPlanBanners() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
       {/* Monthly Plan */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 flex items-center justify-between">
+      <div className="card-depth card-depth-hover rounded-xl p-5 flex items-center justify-between overflow-hidden">
+        <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
         <div>
           <h3 className="text-sm font-semibold text-white">Monthly Plan</h3>
           <p className="text-xs text-gray-400 mt-0.5">Billed monthly. Cancel anytime.</p>
@@ -15,7 +16,8 @@ export const SubscriptionPlanBanners = memo(function SubscriptionPlanBanners() {
       </div>
 
       {/* Annual Plan */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 flex items-center justify-between">
+      <div className="card-depth card-depth-hover rounded-xl p-5 flex items-center justify-between overflow-hidden">
+        <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
         <div>
           <h3 className="text-sm font-semibold text-white">Annual Plan</h3>
           <p className="text-xs text-gray-400 mt-0.5">Full refund within first 30 days.</p>

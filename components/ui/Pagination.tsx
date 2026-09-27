@@ -46,7 +46,7 @@ export const Pagination = memo(function Pagination({
   return (
     <div
       className={cn(
-        "flex flex-col sm:flex-row items-center justify-between gap-3 px-4 py-3.5 bg-[#121316] border border-[#1E2026] rounded-xl text-xs text-gray-400 select-none",
+        "flex flex-col sm:flex-row items-center justify-between gap-3 px-4 py-3 bg-gradient-to-b from-[#14161C]/90 to-[#0F1014]/90 border border-white/[0.07] shadow-sm rounded-xl text-xs text-gray-400 select-none",
         className
       )}
     >
@@ -64,7 +64,7 @@ export const Pagination = memo(function Pagination({
           type="button"
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-[#232630] bg-[#181A1F] text-gray-300 hover:text-white hover:bg-[#20232A] disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-white/[0.08] bg-[#15171D] text-gray-300 hover:text-white hover:bg-white/[0.06] hover:border-white/20 disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer active:scale-95"
           aria-label="Previous page"
         >
           <ChevronLeft className="w-3.5 h-3.5" />
@@ -96,8 +96,8 @@ export const Pagination = memo(function Pagination({
                 className={cn(
                   "min-w-7 h-7 flex items-center justify-center rounded-lg text-xs font-semibold transition-all cursor-pointer",
                   isActive
-                    ? "bg-[#FFC800] text-black shadow-xs font-bold"
-                    : "bg-[#181A1F] text-gray-400 border border-[#232630] hover:text-white hover:bg-[#20232A]"
+                    ? "bg-[#FFC800] text-black shadow-[0_0_12px_rgba(255,200,0,0.3)] font-bold scale-105"
+                    : "bg-[#15171D] text-gray-400 border border-white/[0.07] hover:text-white hover:bg-white/[0.06] hover:border-white/20 active:scale-95"
                 )}
                 aria-current={isActive ? "page" : undefined}
               >
@@ -112,7 +112,7 @@ export const Pagination = memo(function Pagination({
           type="button"
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages || totalPages === 0}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-[#232630] bg-[#181A1F] text-gray-300 hover:text-white hover:bg-[#20232A] disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-white/[0.08] bg-[#15171D] text-gray-300 hover:text-white hover:bg-white/[0.06] hover:border-white/20 disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer active:scale-95"
           aria-label="Next page"
         >
           <span className="hidden sm:inline">Next</span>

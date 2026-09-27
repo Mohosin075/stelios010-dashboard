@@ -65,7 +65,7 @@ export default function CommunityPage() {
       )}
 
       {/* 1. Tabs */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-1.5 flex items-center gap-2 w-full">
+      <div className="tab-depth rounded-2xl p-1.5 flex items-center gap-1.5 w-full">
         {(["Support Groups", "Community Meets"] as const).map((tab) => {
           const isActive = activeTab === tab;
           return (
@@ -77,10 +77,10 @@ export default function CommunityPage() {
                 setCurrentPage(1);
               }}
               className={cn(
-                "px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer select-none",
+                "px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 cursor-pointer select-none active:scale-95",
                 isActive
-                  ? "bg-[#FFC800] text-black shadow-xs font-bold"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-[#FFC800] text-black shadow-[0_2px_10px_rgba(255,200,0,0.3)] font-bold"
+                  : "text-gray-400 hover:text-white hover:bg-white/[0.04]"
               )}
             >
               {tab}
@@ -95,8 +95,9 @@ export default function CommunityPage() {
           {paginatedGroups.map((group) => (
             <div
               key={group.id}
-              className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 flex flex-col justify-between space-y-4 hover:border-gray-700/60 transition-colors"
+              className="card-depth card-depth-hover rounded-xl p-5 flex flex-col justify-between space-y-4 overflow-hidden"
             >
+              <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
               <div>
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-sm font-semibold text-white tracking-tight">
@@ -126,14 +127,14 @@ export default function CommunityPage() {
                   <button
                     type="button"
                     onClick={() => showToast(`Opening ${group.title}...`)}
-                    className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-3.5 py-1 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
+                    className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-3 py-1 text-xs font-medium transition-all cursor-pointer active:scale-95"
                   >
                     View Group
                   </button>
                   <button
                     type="button"
                     onClick={() => handleToggleGroup(group.id)}
-                    className="bg-[#161820] border border-[#272A36] hover:border-red-500/50 text-[#EF4444] rounded-lg px-3.5 py-1 text-xs font-medium transition-all hover:bg-red-950/20 cursor-pointer"
+                    className="bg-red-500/10 border border-red-500/20 hover:border-red-500/40 hover:bg-red-500/15 text-red-400 rounded-lg px-3 py-1 text-xs font-medium transition-all cursor-pointer active:scale-95"
                   >
                     {group.status === "Active" ? "Disable" : "Enable"}
                   </button>
@@ -147,8 +148,9 @@ export default function CommunityPage() {
           {paginatedMeets.map((meet) => (
             <div
               key={meet.id}
-              className="bg-[#121316] border border-[#1E2026] rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-gray-700/60 transition-colors"
+              className="card-depth card-depth-hover rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 overflow-hidden"
             >
+              <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
               <div>
                 <h3 className="text-sm font-semibold text-white tracking-tight">
                   {meet.title}
@@ -176,7 +178,7 @@ export default function CommunityPage() {
                 <button
                   type="button"
                   onClick={() => showToast(`Viewing meetup "${meet.title}"...`)}
-                  className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-3.5 py-1 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
+                  className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-3 py-1 text-xs font-medium transition-all cursor-pointer active:scale-95"
                 >
                   View
                 </button>
@@ -185,7 +187,7 @@ export default function CommunityPage() {
                   <button
                     type="button"
                     onClick={() => handleRemoveMeet(meet.id)}
-                    className="bg-[#161820] border border-[#272A36] hover:border-red-500/50 text-[#EF4444] rounded-lg px-3.5 py-1 text-xs font-medium transition-all hover:bg-red-950/20 cursor-pointer"
+                    className="bg-red-500/10 border border-red-500/20 hover:border-red-500/40 hover:bg-red-500/15 text-red-400 rounded-lg px-3 py-1 text-xs font-medium transition-all cursor-pointer active:scale-95"
                   >
                     Remove
                   </button>

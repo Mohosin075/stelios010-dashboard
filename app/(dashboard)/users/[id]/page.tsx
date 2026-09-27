@@ -58,14 +58,15 @@ export default function UserDetailsPage() {
       </div>
 
       {/* 1. Header Profile Card */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="card-depth rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 overflow-hidden">
+        <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
         <div className="flex items-center gap-4">
           <div
             className={cn(
               "w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-lg shrink-0 select-none",
               user.isYellowAvatar
-                ? "bg-[#252110] text-[#FFC800] border border-[#FFC800]/30"
-                : "bg-[#1C1E26] text-gray-200 border border-gray-700/50"
+                ? "bg-[#FFC800]/15 text-[#FFC800] border border-[#FFC800]/30 shadow-[0_0_12px_rgba(255,200,0,0.15)]"
+                : "bg-[#1C1E26] text-gray-200 border border-white/[0.08]"
             )}
           >
             {user.initials}
@@ -112,7 +113,7 @@ export default function UserDetailsPage() {
             <button
               type="button"
               onClick={() => setIsSuspendModalOpen(true)}
-              className="border border-red-500/40 text-red-500 hover:bg-red-500/10 px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer"
+              className="border border-red-500/30 text-red-400 hover:bg-red-500/10 px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer active:scale-95"
             >
               Suspend Account
             </button>
@@ -120,7 +121,7 @@ export default function UserDetailsPage() {
             <button
               type="button"
               onClick={handleReactivate}
-              className="border border-green-500/40 text-[#10B981] hover:bg-green-500/10 px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer"
+              className="border border-green-500/30 text-[#10B981] hover:bg-green-500/10 px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer active:scale-95"
             >
               Reactivate Account
             </button>
@@ -131,7 +132,8 @@ export default function UserDetailsPage() {
       {/* 2. Main Two Column Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
         {/* Left Column: Personal Information */}
-        <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-6 space-y-4">
+        <div className="card-depth rounded-2xl p-6 space-y-4 overflow-hidden">
+          <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
           <h3 className="text-sm font-semibold text-white tracking-wide">
             Personal Information
           </h3>
@@ -184,7 +186,8 @@ export default function UserDetailsPage() {
         {/* Right Column: Bionic Products & Master Indicators */}
         <div className="space-y-4">
           {/* Bionic Products Card */}
-          <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-6 space-y-3">
+          <div className="card-depth rounded-2xl p-6 space-y-3 overflow-hidden">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
             <h3 className="text-sm font-semibold text-white tracking-wide">
               Bionic Products ({products.length})
             </h3>
@@ -198,7 +201,7 @@ export default function UserDetailsPage() {
                 {products.map((prod) => (
                   <div
                     key={prod.id}
-                    className="bg-[#181A20] border border-[#232630] rounded-xl p-4 flex items-center justify-between"
+                    className="bg-[#0D0E12]/80 border border-white/[0.06] rounded-xl p-4 flex items-center justify-between"
                   >
                     <div>
                       <p className="text-sm font-semibold text-white">
@@ -226,12 +229,13 @@ export default function UserDetailsPage() {
           </div>
 
           {/* Master Indicators Card */}
-          <div className="bg-[#121316] border border-[#1E2026] rounded-2xl p-6">
+          <div className="card-depth rounded-2xl p-6 overflow-hidden">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
             <h3 className="text-sm font-semibold text-white tracking-wide mb-3">
               Master Indicators
             </h3>
 
-            <div className="divide-y divide-[#1F222B]">
+            <div className="divide-y divide-white/[0.04]">
               <div className="flex items-center justify-between py-3 text-xs">
                 <span className="text-gray-500 font-medium">
                   Origin of Amputation

@@ -56,7 +56,7 @@ export default function VerificationsPage() {
   return (
     <div className="w-full space-y-4">
       {/* 1. Tabs */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl p-1.5 flex gap-2 w-fit">
+      <div className="tab-depth rounded-xl p-1.5 flex gap-1.5 w-fit">
         {(["Pending", "Approved", "Unsuccessful"] as const).map((tab) => {
           const isActive = activeTab === tab;
           const count = counts[tab];
@@ -67,10 +67,10 @@ export default function VerificationsPage() {
               type="button"
               onClick={() => handleTabChange(tab)}
               className={cn(
-                "flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 cursor-pointer select-none",
+                "flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 cursor-pointer select-none active:scale-95",
                 isActive
-                  ? "bg-[#FFC800] text-black shadow-xs font-bold"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-[#FFC800] text-black shadow-[0_2px_10px_rgba(255,200,0,0.3)] font-bold"
+                  : "text-gray-400 hover:text-white hover:bg-white/[0.04]"
               )}
             >
               <span>{tab}</span>
@@ -99,24 +99,24 @@ export default function VerificationsPage() {
             setCurrentPage(1);
           }}
           placeholder="Search by user or product..."
-          className="w-full bg-[#121316] border border-[#1E2026] text-gray-200 placeholder-gray-500 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#FFC800] focus:ring-1 focus:ring-[#FFC800] transition-colors"
+          className="w-full input-depth text-gray-200 placeholder-gray-500 rounded-lg px-3.5 py-2 text-xs focus:outline-none"
         />
       </div>
 
       {/* 3. Verifications Table */}
-      <div className="bg-[#121316] border border-[#1E2026] rounded-xl overflow-x-auto">
+      <div className="table-depth">
         <table className="w-full text-left text-xs whitespace-nowrap">
           <thead>
-            <tr className="border-b border-[#1E2026] text-[11px] font-semibold text-gray-500 uppercase tracking-wider">
+            <tr className="border-b border-white/[0.06] bg-white/[0.02] text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
               <th className="py-3.5 px-5">USER</th>
               <th className="py-3.5 px-4">BIONIC PRODUCT</th>
               <th className="py-3.5 px-4">LIMB</th>
               <th className="py-3.5 px-4">SUBMISSION DATE</th>
               <th className="py-3.5 px-4">STATUS</th>
-              <th className="py-3.5 px-5 text-left">ACTION</th>
+              <th className="py-3.5 px-5 text-left">ACTIONS</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#1A1C22]">
+          <tbody className="divide-y divide-white/[0.04]">
             {paginatedList.length === 0 ? (
               <tr>
                 <td colSpan={6} className="py-8 text-center text-gray-500">
@@ -192,7 +192,7 @@ export default function VerificationsPage() {
                   <td className="py-3.5 px-5">
                     <Link
                       href={`/verifications/${item.id}`}
-                      className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-3.5 py-1 text-xs font-medium transition-all hover:bg-[#1E212B] inline-block"
+                      className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-3 py-1 text-xs font-medium transition-all inline-block cursor-pointer active:scale-95"
                     >
                       Review
                     </Link>

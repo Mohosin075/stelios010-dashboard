@@ -19,13 +19,13 @@ export const PioneerTable = memo(function PioneerTable({
   return (
     <div
       className={cn(
-        "bg-[#121316] border border-[#1E2026] rounded-xl overflow-x-auto",
+        "table-depth",
         className
       )}
     >
       <table className="w-full text-left text-xs whitespace-nowrap">
         <thead>
-          <tr className="border-b border-[#1E2026] text-[11px] font-semibold text-gray-500 uppercase tracking-wider">
+          <tr className="border-b border-white/[0.06] bg-white/[0.02] text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
             <th className="py-3.5 px-5">PIONEER</th>
             <th className="py-3.5 px-4">LOCATION</th>
             <th className="py-3.5 px-4">PRODUCTS</th>
@@ -36,7 +36,7 @@ export const PioneerTable = memo(function PioneerTable({
             <th className="py-3.5 px-5 text-left">ACTIONS</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-[#1A1C22]">
+        <tbody className="divide-y divide-white/[0.04]">
           {pioneers.length === 0 ? (
             <tr>
               <td colSpan={8} className="py-8 text-center text-gray-500">
@@ -47,12 +47,12 @@ export const PioneerTable = memo(function PioneerTable({
             pioneers.map((pioneer) => (
               <tr
                 key={pioneer.id}
-                className="hover:bg-white/[0.015] transition-colors"
+                className="hover:bg-white/[0.025] transition-colors duration-150"
               >
                 {/* Pioneer avatar + name + website */}
                 <td className="py-3.5 px-5">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-[#252110] text-[#FFC800] border border-[#FFC800]/30 flex items-center justify-center font-bold text-xs shrink-0 select-none">
+                    <div className="w-9 h-9 rounded-xl bg-[#FFC800]/15 text-[#FFC800] border border-[#FFC800]/30 shadow-[0_0_8px_rgba(255,200,0,0.12)] flex items-center justify-center font-bold text-xs shrink-0 select-none">
                       {pioneer.initials}
                     </div>
                     <div>
@@ -119,14 +119,14 @@ export const PioneerTable = memo(function PioneerTable({
                   <div className="flex items-center gap-2">
                     <Link
                       href={`/pioneers/${pioneer.id}`}
-                      className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-3.5 py-1 text-xs font-medium transition-all hover:bg-[#1E212B] inline-block cursor-pointer"
+                      className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-3 py-1 text-xs font-medium transition-all inline-block cursor-pointer active:scale-95"
                     >
                       View
                     </Link>
                     <button
                       type="button"
                       onClick={() => onManagePioneer?.(pioneer)}
-                      className="bg-[#161820] border border-[#272A36] hover:border-gray-500 text-white rounded-lg px-3.5 py-1 text-xs font-medium transition-all hover:bg-[#1E212B] cursor-pointer"
+                      className="bg-white/[0.05] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.09] text-gray-200 hover:text-white rounded-lg px-3 py-1 text-xs font-medium transition-all cursor-pointer active:scale-95"
                     >
                       Manage
                     </button>
